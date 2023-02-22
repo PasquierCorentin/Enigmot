@@ -1,4 +1,4 @@
-# Application Prévisions Météo
+# Application ENIGMOT
 
 Ce projet est un jeu inspiré de "Wordle", réalisé avec **Reactjs**, **Typescript** et **TailwindCSS**.
 
