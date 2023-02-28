@@ -94,11 +94,6 @@ function App() {
                 </span>
               </p>
 
-              {/* <WordRow
-                letters={state.answer}
-                className="items-center justify-items-center"
-              /> */}
-
               <button
                 data-testid="newGameButton"
                 className="block bg-green-500 rounded-full py-2 px-4 mx-auto mt-8"

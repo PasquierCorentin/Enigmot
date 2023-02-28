@@ -7,6 +7,20 @@ module.exports = {
         flip: 'flip 1s ease',
         shake: 'shake 1s ease',
       },
+      animationDelay: {
+        0: '0ms',
+        1: '500ms',
+        2: '1000ms',
+        3: '1500ms',
+        4: '2000ms',
+      },
+      transitionDelay: {
+        0: '50ms',
+        1: '550ms',
+        2: '1050ms',
+        3: '1550ms',
+        4: '2050ms',
+      },
       keyframes: {
         flip: {
           '0%': {
@@ -39,4 +53,8 @@ module.exports = {
       },
     },
   },
+  variants: {
+    animationDelay: ['responsive', 'hover'],
+  },
+  plugins: [require('tailwindcss-animation-delay')],
 }

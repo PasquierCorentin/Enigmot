@@ -18,7 +18,12 @@ export default function WordRow({
   return (
     <div className={`grid grid-cols-5 gap-4 ${className}`}>
       {letters.map((char, index) => (
-        <CharacterBox key={index} value={char} state={result[index]} />
+        <CharacterBox
+          key={index}
+          delayIndex={index}
+          value={char}
+          state={result[index]}
+        />
       ))}
     </div>
   )
@@ -27,21 +32,37 @@ export default function WordRow({
 interface CharacterBoxProps {
   value: string
   state?: LetterState
+  delayIndex: number
 }
 
-function CharacterBox({ value, state }: CharacterBoxProps) {
+function CharacterBox({ delayIndex, value, state }: CharacterBoxProps) {
   const statesStyles =
     state == null ? 'border-zinc-500' : characterStatesStyles[state]
+
+  const delayStyles =
+    state == null
+      ? ''
+      : delayIndex == null
+      ? ''
+      : characterDelayStyles[delayIndex]
 
   return (
     <span
       className={`inline-block border-2 rounded-lg p-4 
       before:inline-block before:content-['_']
-      uppercase font-bold text-2xl text-center  ${statesStyles}`}
+      uppercase font-bold text-2xl text-center ${statesStyles} ${delayStyles}`}
     >
       {value}
     </span>
   )
+}
+
+const characterDelayStyles: any = {
+  [0]: `animation-delay-0 delay-0`,
+  [1]: `animation-delay-1 delay-1`,
+  [2]: `animation-delay-2 delay-2`,
+  [3]: `animation-delay-3 delay-3`,
+  [4]: `animation-delay-4 delay-4`,
 }
 
 const characterStatesStyles = {
